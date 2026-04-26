@@ -21,7 +21,7 @@ dependencies {
 	//implementation 'org.springframework.boot:spring-boot-h2console'
 	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     //testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
-    implementation 'org.springframework.boot:spring-boot-starter-mongodb'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'

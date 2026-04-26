@@ -17,7 +17,6 @@ import java.util.List;
 public class HabitController {
 
     private final HabitService habitService;
-    private final HabitRepository repository;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -30,5 +29,11 @@ public class HabitController {
     public List<HabitResponseDTO> findAllHabits(){
         return habitService.findAllHabits();
     }
+
+    @GetMapping("/active")
+    public List<HabitResponseDTO> findActiveHabits(@RequestParam(defaultValue = "7") int days){
+        return habitService.findHabitsLoggedSince(days);
+    }
+
 
 }

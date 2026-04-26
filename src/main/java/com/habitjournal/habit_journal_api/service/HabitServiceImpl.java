@@ -25,19 +25,19 @@ public class HabitServiceImpl implements HabitService {
     @Transactional
     public HabitResponseDTO createNewHabit(HabitRequestDTO requestDTO) {
 
-        habitRepository.findHabitByName(requestDTO.name())
+        habitRepository.findByName(requestDTO.name())
                 .ifPresent(habit -> {
                     throw new DuplicateHabitException(habit.getName());
-                });
+        });
 
         Habit newHabit = new Habit();
-        newHabit.changeName(requestDTO.name());
+        newHabit.setName(requestDTO.name());
 
         if (requestDTO.logs() != null && !requestDTO.logs().isEmpty()) {
 
             for (LocalDateTime log : requestDTO.logs()) {
-                LogEntry newLog = new LogEntry();
-                newHabit.addLogEntry(newLog);
+                LogEntry newLog = new LogEntry(log);
+                newHabit.getLogEntries().add(newLog);
             }
         }
 
@@ -50,12 +50,21 @@ public class HabitServiceImpl implements HabitService {
     @Override
     @Transactional(readOnly = true)
     public List<HabitResponseDTO> findAllHabits() {
-        log.info(habitRepository.findAllWithLogs().toString());
-        return habitRepository.findAllWithLogs().stream()
+        log.info(habitRepository.findAll().toString());
+        return habitRepository.findAll().stream()
                 .map(this::toHabitResponseDTO)
                 .toList();
     }
 
+    @Override
+    public List<HabitResponseDTO> findHabitsLoggedSince(int days) {
+
+        LocalDateTime sinceDate = LocalDateTime.now().minusDays(days);
+
+        List<Habit> habitsLoggedSince = habitRepository.findHabitsLoggedSince(sinceDate);
+
+        return habitsLoggedSince.stream().map(this::toHabitResponseDTO).toList();
+    }
 
 
     private HabitResponseDTO toHabitResponseDTO(Habit habit) {

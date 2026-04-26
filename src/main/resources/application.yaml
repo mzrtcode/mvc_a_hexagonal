@@ -16,6 +16,5 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  data:
-    mongodb:
-      uri: mongodb+srv://mzrt:QihGhOsCy6DRAxfJ@habitjournalcluster.wvdjczh.mongodb.net/habit_journal_db?appName=HabitJournalCluster
+  mongodb:
+    uri: mongodb+srv://mzrt:QihGhOsCy6DRAxfJ@habitjournalcluster.wvdjczh.mongodb.net/habit_journal_db?appName=HabitJournalCluster
