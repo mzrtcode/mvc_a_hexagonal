@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public record HabitResponseDTO(
-    Long id,
+    String id,
     String name,
     List<LocalDateTime> logs
 ) { }

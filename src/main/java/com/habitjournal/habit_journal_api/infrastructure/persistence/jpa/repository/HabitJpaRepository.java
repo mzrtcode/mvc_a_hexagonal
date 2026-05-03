@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface HabitJpaRepository extends JpaRepository<HabitEntity, Long> {
+public interface HabitJpaRepository extends JpaRepository<HabitEntity, String> {
     Optional<HabitEntity> findByName(String name);
 }

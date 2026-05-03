@@ -2,6 +2,7 @@ package com.habitjournal.habit_journal_api.infrastructure.persistence.jpa.entity
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
 
@@ -9,8 +10,8 @@ import java.time.LocalDateTime;
 @Data
 @Table(name = "log_entries")
 public class LogEntryEntity {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id @UuidGenerator
+    private String id;
     private LocalDateTime entryDate;
 
     @ManyToOne(fetch = FetchType.LAZY)

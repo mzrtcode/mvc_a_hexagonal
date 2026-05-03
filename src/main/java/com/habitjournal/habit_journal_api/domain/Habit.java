@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class Habit {
-    private Long id;
+    private String id;
     private String name;
     private List<LogEntry> logEntries = new ArrayList<>();
 

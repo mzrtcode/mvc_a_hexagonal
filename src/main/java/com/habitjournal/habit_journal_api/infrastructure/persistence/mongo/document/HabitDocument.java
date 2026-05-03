@@ -12,7 +12,7 @@ import java.util.List;
 public class HabitDocument {
 
     @Id
-    private Long id;
+    private String id;
     private String name;
 
     List<LogEntryDocument> logEntries =  new ArrayList<>();

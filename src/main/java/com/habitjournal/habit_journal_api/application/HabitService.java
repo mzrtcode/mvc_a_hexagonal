@@ -37,7 +37,7 @@ public class HabitService implements CreateHabitUseCase, RetrieveHabitUseCase {
     }
 
     @Override
-    public Habit getHabit(Long id) {
+    public Habit getHabit(String id) {
         return habitRepositoryPort.findById(id).orElseThrow(
                 () -> new HabitNotFoundException(id)
         );

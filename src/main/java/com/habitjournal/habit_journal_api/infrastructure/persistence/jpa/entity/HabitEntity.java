@@ -2,6 +2,7 @@ package com.habitjournal.habit_journal_api.infrastructure.persistence.jpa.entity
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +12,8 @@ import java.util.List;
 @Table(name = "habits")
 public class HabitEntity {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id @UuidGenerator
+    private String id;
     private String name;
 
     @OneToMany(mappedBy = "habit", cascade = CascadeType.ALL, orphanRemoval = true)
