@@ -1,3 +1,5 @@
 spring:
   application:
     name: habit-journal-api
+  mongodb:
+    uri: mongodb+srv://mzrt:QihGhOsCy6DRAxfJ@habitjournalcluster.wvdjczh.mongodb.net/habit_journal_db?appName=HabitJournalCluster

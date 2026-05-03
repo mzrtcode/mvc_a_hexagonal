@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class HabitMongoMapper {
-    HabitDocument toEntity(Habit habit){
+    HabitDocument toDocument(Habit habit){
         HabitDocument habitDocument = new HabitDocument();
         habitDocument.setId(habit.getId());
         habitDocument.setName(habit.getName());

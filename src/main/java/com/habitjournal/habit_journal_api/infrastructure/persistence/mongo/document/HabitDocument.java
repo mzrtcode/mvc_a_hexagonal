@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Document(collation = "habits")
+@Document(collection  = "habits")
 public class HabitDocument {
 
     @Id
